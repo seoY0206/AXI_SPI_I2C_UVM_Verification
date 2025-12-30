@@ -52,8 +52,9 @@ SPI·I2C Master/Slave 통신 모듈을 설계하고, UVM 기반 검증과 AXI-Li
 ```
 
 ### 📊 SPI UVM 검증 환경
-<img src="./images/spi_uvm.png" width="450">
-
+<p align="center">
+  <img src="./images/spi_uvm.png" width="450">
+</p>
 ---
 
 ## 🔧 개발 환경
