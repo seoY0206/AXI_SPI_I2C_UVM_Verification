@@ -97,7 +97,7 @@ module i2c_slave (
         addr_next       = addr_reg;
         rx_data_next    = rx_data_reg;
         rx_done_next    = 0;
-        o_sda           = 1'b1;  // ±âº» °ª 1??
+        o_sda           = 1'b1;  // ê¸°ë³¸ ê°’ 1??
         tx_data_next    = tx_data_reg;
         burst_read_next = burst_read_reg;
         tx_done         = 0;
@@ -130,7 +130,7 @@ module i2c_slave (
                     end
                 end
             end
-            WAIT: begin  // rising_edge¿¡¼­ ¹Ù·Î SEDN_ACK·Î °¡¹ö¸®¸é Ãæµ¹³²
+            WAIT: begin  // rising_edgeì—ì„œ ë°”ë¡œ SEDN_ACKë¡œ ê°€ë²„ë¦¬ë©´ ì¶©ëŒë‚¨
                 if (scl_falling) begin
                     state_next = SEND_ACK;
                 end
@@ -143,13 +143,13 @@ module i2c_slave (
                     if (addr_reg[7:1] == slave_addr) begin
                         addr_next = 0;
                         if (addr_reg[0]) begin
-                            state_next   = SEND_DATA;  // READ µ¿ÀÛ
+                            state_next   = SEND_DATA;  // READ ë™ì‘
                             tx_data_next = tx_data;
                         end else begin
-                            state_next = RCV_DATA;  // Write µ¿ÀÛ
+                            state_next = RCV_DATA;  // Write ë™ì‘
                         end
                     end else begin
-                        state_next = STOP;  // ÁÖ¼Ò ºÒÀÏÄ¡
+                        state_next = STOP;  // ì£¼ì†Œ ë¶ˆì¼ì¹˜
                     end
                 end
             end
@@ -164,7 +164,7 @@ module i2c_slave (
                     end
                 end
             end
-            WAIT_2: begin  // rising_edge¿¡¼­ ¹Ù·Î SEDN_ACK·Î °¡¹ö¸®¸é Ãæµ¹³²
+            WAIT_2: begin  // rising_edgeì—ì„œ ë°”ë¡œ SEDN_ACKë¡œ ê°€ë²„ë¦¬ë©´ ì¶©ëŒë‚¨
                 if (scl_falling) begin
                     state_next = SEND_ACK_2;
                 end
